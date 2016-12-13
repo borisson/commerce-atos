@@ -1,0 +1,9 @@
+{
+  "name": "drupal/commerce_atos",
+  "type": "drupal-module",
+  "version": "0.1",
+  "description": "SIPS payment gateway for drupal commerce.",
+  "require": {
+    "marlon-be/marlon-sips": "^1.0"
+  }
+}

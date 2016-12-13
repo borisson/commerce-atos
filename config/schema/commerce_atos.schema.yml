@@ -1,0 +1,12 @@
+commerce_payment.commerce_payment_gateway.plugin.sips_payment:
+  type: commerce_payment_gateway_configuration
+  mapping:
+    sips_payment_option:
+      type: string
+      label: 'Payment option'
+    sips_response_code:
+      type: string
+      label: 'SIPS Response code'
+    sips_seal:
+      type: string
+      label: 'SIPS seal'

@@ -1,0 +1,12 @@
+commerce_atos.handle_response:
+  path: 'sips/response/{commerce_order}/{commerce_payment}'
+  defaults:
+    _controller: '\Drupal\commerce_atos\Controller\SIPSPaymentController::handleResponse'
+  requirements:
+    _access: 'TRUE'
+  options:
+    parameters:
+      commerce_order:
+        type: entity:commerce_order
+      commerce_payment:
+        type: entity:commerce_payment
