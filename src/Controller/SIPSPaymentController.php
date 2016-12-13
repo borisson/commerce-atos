@@ -161,7 +161,7 @@ class SIPSPaymentController extends ControllerBase {
             '@valid' => $payment_response->isValid($shaComposer) ? 'Yes' : 'No',
           ]);
 
-      drupal_set_message(t('An error occurred while processing your request.'), 'error');
+      drupal_set_message($this->t('An error occurred while processing your request.'), 'error');
 
       return new LocalRedirectResponse(Url::fromRoute('commerce_cart.page')
         ->toString(TRUE)
@@ -191,7 +191,7 @@ class SIPSPaymentController extends ControllerBase {
     $this->payment->set('state', 'void');
     $this->payment->save();
 
-    drupal_set_message(t('An error occurred in the SIPS platform: [@code] @error',
+    drupal_set_message($this->t('An error occurred in the SIPS platform: [@code] @error',
       [
         '@error' => $this->getResponseCodeDescription($code),
         '@code' => $code,
@@ -293,14 +293,11 @@ class SIPSPaymentController extends ControllerBase {
       '99' => 'Temporary problem at the Sips Office Server level',
     ];
 
-    if (!empty($descriptions[$code])) {
-      $description = $descriptions[$code];
-    }
-    else {
-      $description = "Unknown error code - [{$code}]";
+    if (empty($descriptions[$code])) {
+      return "Unknown error code - [{$code}]";
     }
 
-    return $description;
+    return $descriptions[$code];
   }
 
 }

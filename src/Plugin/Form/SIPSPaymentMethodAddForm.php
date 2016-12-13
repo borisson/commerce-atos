@@ -43,15 +43,7 @@ class SIPSPaymentMethodAddForm extends PaymentGatewayFormBase {
       'MAESTRO' => $this->t('Maestro'),
     ];
 
-    $prefix = '<span class="payment-option-element payment-option-element--';
-    $suffix = '</span>';
-
-    // Loop over all methods and transform them into items used in the option
-    // list.
-    $options = [];
-    foreach ($methods as $key => $item) {
-      $options[$key] = $prefix . strtolower($key) . '">' . $item . $suffix;
-    }
+    $options = $this->createOptionsForPaymentMethods($methods);
 
     $form['payment_details']['payment_option'] = [
       '#type' => 'radios',
@@ -99,6 +91,28 @@ class SIPSPaymentMethodAddForm extends PaymentGatewayFormBase {
       throw new PaymentGatewayException('We encountered an unexpected error processing your payment method. Please try again later.');
     }
 
+  }
+
+  /**
+   * Transform the array of methods into an array of options.
+   *
+   * @param string[] $methods
+   *   An array of methods, keyed by machine name.
+   *
+   * @return string[]
+   *   An array of methods, keyed by machine name.
+   */
+  protected function createOptionsForPaymentMethods($methods) {
+    $prefix = '<span class="payment-option-element payment-option-element--';
+    $suffix = '</span>';
+
+    // Loop over all methods and transform them into items used in the option
+    // list.
+    $options = [];
+    foreach ($methods as $key => $item) {
+      $options[$key] = $prefix . strtolower($key) . '">' . $item . $suffix;
+    }
+    return $options;
   }
 
 }
