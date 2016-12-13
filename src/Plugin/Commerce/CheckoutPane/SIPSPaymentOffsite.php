@@ -81,12 +81,9 @@ class SIPSPaymentOffsite extends CheckoutPaneBase implements CheckoutPaneInterfa
    * @param \Drupal\commerce_payment\Entity\PaymentInterface $payment
    *   The payment we should create a redirect for.
    *
-   * @return void|\Psr\Http\Message\ResponseInterface
-   *   The redirect response if we can redirect. Void otherwise.
-   *
    * @throws \Drupal\Core\Form\EnforcedResponseException
    */
-  protected function redirectToSIPS(PaymentInterface $payment) {
+  protected function redirectToSips(PaymentInterface $payment) {
 
     /* @var \Drupal\commerce_payment\Plugin\Commerce\PaymentGateway\PaymentGatewayInterface $payment_gateway */
     $payment_gateway = $this->order->payment_gateway->entity;
@@ -179,7 +176,7 @@ class SIPSPaymentOffsite extends CheckoutPaneBase implements CheckoutPaneInterfa
   public function buildPaneForm(array $pane_form, FormStateInterface $form_state, array &$complete_form) {
 
     $payment = $this->createPayment();
-    $response = $this->redirectToSIPS($payment);
+    $response = $this->redirectToSips($payment);
 
     return $response;
   }

@@ -3,8 +3,6 @@
 namespace Drupal\commerce_atos\Controller;
 
 use Drupal\commerce_checkout\CheckoutOrderManagerInterface;
-use Drupal\commerce_checkout\Event\CheckoutCompleteEvent;
-use Drupal\commerce_checkout\Event\CheckoutEvents;
 use Drupal\Core\Controller\ControllerBase;
 use Drupal\Core\Routing\LocalRedirectResponse;
 use Drupal\Core\Routing\RouteMatchInterface;
@@ -154,16 +152,14 @@ class SIPSPaymentController extends ControllerBase {
       //
       // We're aborting the request here.
       \Drupal::logger('commerce_atos')
-        ->warning('User arrived to commerce_atos.handle_response without ' .
-          'valid information: ' .
+        ->warning('User arrived to commerce_atos.handle_response without valid information: ' .
           '[transaction reference equals: @transactionReference - @transactionReferencePayment]' .
-          '[Is remote state pending: @remoteState]' .
-          '[Valid SIPS answer: @valid].', [
-          '@transactionReference' => $transaction_reference,
-          '@transactionReferencePayment' => $this->payment->getRemoteId(),
-          '@remoteState' => $this->payment->getRemoteState(),
-          '@valid' => $payment_response->isValid($shaComposer) ? 'Yes' : 'No',
-        ]);
+          '[Is remote state pending: @remoteState] [Valid SIPS answer: @valid].', [
+            '@transactionReference' => $transaction_reference,
+            '@transactionReferencePayment' => $this->payment->getRemoteId(),
+            '@remoteState' => $this->payment->getRemoteState(),
+            '@valid' => $payment_response->isValid($shaComposer) ? 'Yes' : 'No',
+          ]);
 
       drupal_set_message(t('An error occurred while processing your request.'), 'error');
 
