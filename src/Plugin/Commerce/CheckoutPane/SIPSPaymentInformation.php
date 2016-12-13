@@ -46,4 +46,11 @@ class SIPSPaymentInformation extends PaymentInformation {
     $this->order->payment_method = $payment_method;
   }
 
+  /**
+   * {@inheritdoc}
+   */
+  public function isVisible() {
+    return !$this->order->getTotalPrice()->isZero();
+  }
+
 }

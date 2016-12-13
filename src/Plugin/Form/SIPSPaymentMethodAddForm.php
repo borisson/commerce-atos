@@ -5,11 +5,14 @@ namespace Drupal\commerce_atos\Plugin\Form;
 use Drupal\commerce_payment\Exception\PaymentGatewayException;
 use Drupal\commerce_payment\PluginForm\PaymentGatewayFormBase;
 use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\StringTranslation\StringTranslationTrait;
 
 /**
  * SIPS Payment form.
  */
 class SIPSPaymentMethodAddForm extends PaymentGatewayFormBase {
+
+  use StringTranslationTrait;
 
   /**
    * {@inheritdoc}
@@ -33,13 +36,28 @@ class SIPSPaymentMethodAddForm extends PaymentGatewayFormBase {
       '#payment_method_type' => $payment_method->bundle(),
     ];
 
+    // Create an array of available methods.
+    $methods = [
+      'VISA' => $this->t('Visa'),
+      'MASTERCARD' => $this->t('MasterCard'),
+      'MAESTRO' => $this->t('Maestro'),
+    ];
+
+    $prefix = '<span class="payment-option-element payment-option-element--';
+    $suffix = '</span>';
+
+    // Loop over all methods and transform them into items used in the option
+    // list.
+    $options = [];
+    foreach ($methods as $key => $item) {
+      $options[$key] = $prefix . strtolower($key) . '">' . $item . $suffix;
+    }
+
     $form['payment_details']['payment_option'] = [
       '#type' => 'radios',
-      '#options' => [
-        'PAYPAL' => t('Paypal'),
-        'VISA' => t('Visa'),
-        'MASTERCARD' => t('MasterCard'),
-      ],
+      '#prefix' => '<div class="payment-options">',
+      '#suffix' => '</div>',
+      '#options' => $options,
       '#required' => TRUE,
     ];
 

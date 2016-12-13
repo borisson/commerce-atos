@@ -193,4 +193,11 @@ class SIPSPaymentOffsite extends CheckoutPaneBase implements CheckoutPaneInterfa
     );
   }
 
+  /**
+   * {@inheritdoc}
+   */
+  public function isVisible() {
+    return !$this->order->getTotalPrice()->isZero();
+  }
+
 }
