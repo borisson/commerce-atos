@@ -2,10 +2,6 @@
 
 namespace Drupal\Tests\commerce_atos\Functional;
 
-use Drupal\commerce_payment\Entity\Payment;
-use Drupal\commerce_price\Price;
-use Drupal\commerce_store\StoreCreationTrait;
-use Drupal\Tests\commerce\Functional\CommerceBrowserTestBase;
 use Drupal\Tests\commerce_payment\Functional\PaymentAdminTest as CommercePaymentAdminTest;
 
 /**

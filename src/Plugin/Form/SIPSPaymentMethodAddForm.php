@@ -102,7 +102,7 @@ class SIPSPaymentMethodAddForm extends PaymentGatewayFormBase {
    * @return string[]
    *   An array of methods, keyed by machine name.
    */
-  protected function createOptionsForPaymentMethods($methods) {
+  protected function createOptionsForPaymentMethods(array $methods) {
     $prefix = '<span class="payment-option-element payment-option-element--';
     $suffix = '</span>';
 
