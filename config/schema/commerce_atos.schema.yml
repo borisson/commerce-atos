@@ -1,12 +1,15 @@
 commerce_payment.commerce_payment_gateway.plugin.sips_payment:
   type: commerce_payment_gateway_configuration
   mapping:
-    sips_payment_option:
+    sips_interface_version:
       type: string
-      label: 'Payment option'
-    sips_response_code:
+      label: 'Interface version'
+    sips_key_version:
       type: string
-      label: 'SIPS Response code'
-    sips_seal:
+      label: 'Key version'
+    sips_merchant_id:
       type: string
-      label: 'SIPS seal'
+      label: 'Merchant id'
+    sips_passphrase:
+      type: string
+      label: 'Passphrase'
