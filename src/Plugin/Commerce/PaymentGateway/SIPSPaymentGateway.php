@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\commerce_atos\Plugin\Commerce\PaymentGateway;
+namespace Drupal\commerce_worldline\Plugin\Commerce\PaymentGateway;
 
 use GuzzleHttp\Client;
 use Drupal\commerce_payment\PaymentMethodTypeManager;

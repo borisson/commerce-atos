@@ -1,5 +1,5 @@
 {
-  "name": "drupal/commerce_atos",
+  "name": "drupal/commerce_worldline",
   "type": "drupal-module",
   "version": "0.1",
   "description": "SIPS payment gateway for drupal commerce.",

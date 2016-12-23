@@ -1,7 +1,7 @@
-commerce_atos.handle_response:
+commerce_worldline.handle_response:
   path: 'sips/response/{commerce_order}/{commerce_payment}'
   defaults:
-    _controller: '\Drupal\commerce_atos\Controller\SIPSPaymentController::handleResponse'
+    _controller: '\Drupal\commerce_worldline\Controller\SIPSPaymentController::handleResponse'
   requirements:
     _access: 'TRUE'
   options:

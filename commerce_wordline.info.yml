@@ -1,6 +1,6 @@
 type: module
-name: 'Commerce atos payment provider'
-description: 'Integration of atos/sips payment provider for Drupal commerce.'
+name: 'Commerce wordline payment provider'
+description: 'SIPS payment gateway for drupal commerce.'
 core: 8.x
 dependencies:
   - commerce:commerce

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\Tests\commerce_atos\Functional;
+namespace Drupal\Tests\commerce_worldline\Functional;
 
 use Drupal\Tests\commerce_payment\Functional\PaymentAdminTest as CommercePaymentAdminTest;
 
@@ -15,7 +15,7 @@ class PaymentAdminTest extends CommercePaymentAdminTest {
    * {@inheritdoc}
    */
   public static $modules = [
-    'commerce_atos',
+    'commerce_worldline',
   ];
 
   /**
@@ -26,7 +26,7 @@ class PaymentAdminTest extends CommercePaymentAdminTest {
 
     $this->paymentGateway = $this->createEntity('commerce_payment_gateway', [
       'id' => 'sips_payment',
-      'label' => 'Atos',
+      'label' => 'Wordline payment',
       'plugin' => 'sips_payment',
       'sips_passphrase' => 'test',
     ]);

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\commerce_atos\Controller;
+namespace Drupal\commerce_worldline\Controller;
 
 use Drupal\commerce_checkout\CheckoutOrderManagerInterface;
 use Drupal\Core\Controller\ControllerBase;

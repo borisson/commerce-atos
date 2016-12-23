@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\commerce_atos\Plugin\Commerce\CheckoutPane;
+namespace Drupal\commerce_worldline\Plugin\Commerce\CheckoutPane;
 
 use Drupal\commerce_checkout\Plugin\Commerce\CheckoutFlow\CheckoutFlowInterface;
 use Drupal\commerce_checkout\Plugin\Commerce\CheckoutPane\CheckoutPaneBase;

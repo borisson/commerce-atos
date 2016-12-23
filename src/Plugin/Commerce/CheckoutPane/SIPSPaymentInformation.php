@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\commerce_atos\Plugin\Commerce\CheckoutPane;
+namespace Drupal\commerce_worldline\Plugin\Commerce\CheckoutPane;
 
 use Drupal\commerce_payment\Plugin\Commerce\CheckoutPane\PaymentInformation;
 use Drupal\Core\Form\FormStateInterface;

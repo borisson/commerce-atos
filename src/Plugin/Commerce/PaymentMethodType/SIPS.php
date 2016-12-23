@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\commerce_atos\Plugin\Commerce\PaymentMethodType;
+namespace Drupal\commerce_worldline\Plugin\Commerce\PaymentMethodType;
 
 use Drupal\commerce\BundleFieldDefinition;
 use Drupal\commerce_payment\Entity\PaymentMethodInterface;
